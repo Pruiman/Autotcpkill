@@ -1,0 +1,43 @@
+#!/usr/bin/python3.8
+import os, sys
+n = []
+c = []
+b = []
+bes = []
+
+for i1 in range(10):
+    for i2 in range(10):
+        for i3 in range(10):
+            c.append(str(i1)+str(i2)+str(i3))
+
+command = "arp>buffer.txt"
+result = os.system(command)
+with open('buffer.txt', 'r') as f:
+    result = f.read()
+    print(result)
+with open(r"buffer.txt", 'r') as file:
+    for line in file:
+        for i in range(len(c)):
+            if (c[i] in line):
+                n.append(line)
+for j1 in range(len(n)):
+    for j2 in range(len(n)):
+        if (j1==j2):
+            continue
+        if (n[j1]==n[j2]):
+            del n[j2]
+            n.append(" ")
+while " " in n:
+    n.remove(" ")
+for j in range(len(n)):
+    b = n[j].split()
+    del n[j]
+    bes.append(b[0])
+    n = bes + n
+    b = []
+    bes = []
+
+with open(r"whitelist.txt", 'w') as file:
+    print(*n, file=file, sep="\n")
+
+os.system("./connection_check")

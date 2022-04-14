@@ -1,0 +1,83 @@
+#!/usr/bin/python3.8
+import sys, os, time
+
+
+while True:
+    n = []
+    c = []
+    b = []
+    r = []
+    n1 = []
+    n2 = []
+    t = ''
+
+    for i1 in range(10):
+        for i2 in range(10):
+            for i3 in range(10):
+                i11 = str(i1)
+                i22 = str(i2)
+                i33 = str(i3)
+                c.append(i11+i22+i33)
+
+    command = "arp>buffer.txt"
+    result = os.system(command)
+    with open('buffer.txt', 'r') as f:
+        result = f.read()
+        print(result)
+    with open(r"buffer.txt", 'r') as file:
+        for line in file:
+            for i in range(len(c)):
+                if ("_gateway" in line):
+                    continue
+                if (c[i] in line):
+                    n.append(line)
+
+    for j1 in range(len(n)):
+        for j2 in range(len(n)):
+            if (j1==j2):
+                continue
+            if (n[j1]==n[j2]):
+                del n[j2]
+                n.append(" ")
+    while " " in n:
+        n.remove(" ")
+
+    for jack in range(len(n)):
+        n1.append(n[jack].split())
+
+    for jack2 in range(len(n1)):
+        best1 = n1[jack2]
+        n2.append(best1[0])
+        n2.append("")
+        n2.append(best1[-1])
+        n2.append("")
+    del n2[-1]
+
+    for j in range(len(n)):
+        b = []
+        b = n[j].split()
+        del n[j]
+        n.append(b[0])
+        n.append(n[j])
+        del n[j]
+
+    with open(r"whitelist.txt", 'r') as file1:
+        for line in file1:
+            r.append(line)
+    for l1 in range(len(n)):
+        for l2 in range(len(r)):
+            k = 0
+            if (n[l1] in r[l2]):
+                k += 1
+                break
+        if (k == 0):
+            for ste in range(len(n2)):
+                if (n2[ste]==n[l1]):
+                    t = n2[ste+2]
+            com = "tcpkill -i " + t + " host " + n[l1]
+            os.system(com)
+    time.sleep(10)
+        
+            
+
+
