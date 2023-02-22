@@ -69,7 +69,7 @@ while True:
     print(r)
     for tars in range(len(nt1)):
     	if nt1[tars] not in r:
-    	    com = "tcpkill -i " + nt2[tars] + " host " + nt1[tars] + " & python connection_check.py"
+    	    com = "tcpkill -i " + nt2[tars] + " host " + nt1[tars] + " & python connection_check_0.2.py"
     	    os.system(com)
     	else:
     	    continue
