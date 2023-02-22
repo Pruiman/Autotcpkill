@@ -40,4 +40,4 @@ for j in range(len(n)):
 with open(r"whitelist.txt", 'w') as file:
     print(*n, file=file, sep="\n")
 
-os.system("./connection_check")
+os.system("./connection_check_0.1")
