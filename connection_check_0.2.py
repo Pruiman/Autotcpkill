@@ -36,7 +36,6 @@ while True:
     while " " in n:
         n.remove(" ")
     nl = []
-    print(n)
     for jergo in range(len(n)):
         t = n[jergo]
         t = t.split()
@@ -50,7 +49,6 @@ while True:
     while " " in nl:
         nl.remove(" ")
     nt1 = []
-    print(nl)
     for jarm1 in range(0,len(nl),2):
         t = nl[jarm1]
         nt1.append(t)
@@ -59,14 +57,12 @@ while True:
     for jarm2 in range(1,len(nl),2):
         t = nl[jarm2]
         nt2.append(t)
-    print(nt2)
     r = []
     with open(r"whitelist.txt",'r') as file1:
         for line in file1:
             r.append(line)
     for tax in range(len(r)):
         r[tax] = r[tax][:-1]
-    print(r)
     for tars in range(len(nt1)):
     	if nt1[tars] not in r:
     	    com = "tcpkill -i " + nt2[tars] + " host " + nt1[tars] + " & python connection_check_0.2.py"
