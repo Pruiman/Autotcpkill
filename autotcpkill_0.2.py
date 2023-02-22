@@ -62,4 +62,4 @@ print(nt2)
 with open(r"whitelist.txt", 'w') as file:
     for dar in range(len(nt1)):
         print(nt1[dar], file=file)
-os.system("python connection_checkt.py")
+os.system("python connection_check_0.2.py")
