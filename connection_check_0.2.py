@@ -52,7 +52,6 @@ while True:
     for jarm1 in range(0,len(nl),2):
         t = nl[jarm1]
         nt1.append(t)
-    print(nt1)
     nt2 = []
     for jarm2 in range(1,len(nl),2):
         t = nl[jarm2]
