@@ -35,7 +35,6 @@ for jerg1 in range(tark):
 while " " in n:
     n.remove(" ")
 nl = []
-print(n)
 for jergo in range(len(n)):
     t = n[jergo]
     t = t.split()
@@ -49,16 +48,13 @@ for jergo3 in range(3,len(nl),5):
 while " " in nl:
     nl.remove(" ")
 nt1 = []
-print(nl)
 for jarm1 in range(0,len(nl),2):
     t = nl[jarm1]
     nt1.append(t)
-print(nt1)
 nt2 = []
 for jarm2 in range(1,len(nl),2):
     t = nl[jarm2]
     nt2.append(t)
-print(nt2)
 with open(r"whitelist.txt", 'w') as file:
     for dar in range(len(nt1)):
         print(nt1[dar], file=file)
